@@ -33,7 +33,7 @@
     
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'homepage' %}">Bibliothéques LCP</a>
+    <a class="navbar-brand" href="{% url 'homepage' %}">Bibliothéque LCP</a>
     <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -47,7 +47,7 @@
         <li class="nav-item">
           <a class="nav-link active" href="{% url 'videos' %}">Cours vidéos</a>
         </li>
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle active" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Sélectionner une classe</a>
           <ul class="dropdown-menu" aria-labelledby="dropdown01">
             <li><a class="dropdown-item" href="#">Seconde A</a></li>
@@ -59,7 +59,7 @@
             <li><a class="dropdown-item" href="#">Terminal S</a></li>
             <li><a class="dropdown-item" href="#">Terminal A</a></li>
           </ul>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
@@ -67,14 +67,14 @@
 
 <div class="nav-scroller bg-body shadow-sm">
   <nav class="nav nav-underline" aria-label="Secondary navigation">
-    <a class="nav-link active" aria-current="page" href="#">Statistiques</a>
-    <a class="nav-link" href="#">
+    <a class="nav-link active" aria-current="page" href="">Statistiques</a>
+    <a class="nav-link" href="{% url 'homepage' %}">
       Livres
-      <span class="badge bg-light text-dark rounded-pill align-text-bottom">27</span>
+      <span class="badge bg-light text-dark rounded-pill align-text-bottom">011</span>
     </a>
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="{% url 'videos' %}">
       Cours Vidéos
-      <span class="badge bg-light text-dark rounded-pill align-text-bottom">27</span>
+      <span class="badge bg-light text-dark rounded-pill align-text-bottom">222</span>
     </a>
   </nav>
 </div>
@@ -88,6 +88,15 @@
 
 </main>
 
+
+<div id="msg">
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">Erreur de résolution</h1>
+      <p class="col-md-8 fs-4">Merci d'utiliser un ordinateur pour consulter la bibliothéque</p>
+    </div>
+  </div>
+</div>
 
 <script src="{% static 'script.js' %}"></script>
 <script src="{% static 'default.js' %}"></script>

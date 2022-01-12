@@ -32,7 +32,7 @@ class CoursView(View):
             'data':cours,
             'search' : post.get('search')
         }
-        return render(request, "pages/recherche.html", data)
+        return render(request, "pages/recherche2.html", data)
 
 
 class Result(View):

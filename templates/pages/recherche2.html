@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-
 {% block content %}
 <div class="mb-4 bg-light rounded-">
     <div class="container-fluid py-3 row">
@@ -11,7 +9,7 @@
             <form action="" method="POST">
                 {% csrf_token %}
                 <div class="input-group">
-                    <input type="text" value="{{search}}" name="search" class="form-control" placeholder="Titre du livre" style="padding: .6em;font-size: 1.25rem;font-weight: 300;">
+                    <input type="text" value="{{search}}" name="search" class="form-control" placeholder="Titre du cours" style="padding: .6em;font-size: 1.25rem;font-weight: 300;">
                     <button class="btn btn-outline-secondary" type="submit">
                         <img src="{% static 'search.png' %}" alt="" height="30">
                     </button>
@@ -34,11 +32,11 @@
 
 
                 {% for item in data %}
-                <a href="{% url 'detailsE' item.keydata %}" class="stretched-link">
+                <a href="{% url 'detailsV' item.keydata %}" class="stretched-link">
                 <div id="container_elmnt">
                     <div class="row g-0 item border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-200 position-relative">
                         <div class="col-auto d-none d-lg-block">
-                            <img src="{% static 'icons/1.png' %}" height="150" alt="">
+                            <img src="{% static 'icons/2.png' %}" height="150" alt="">
                         </div>
                         <div class="col p-4 d-flex flex-column position-static">
                             <h3 class="mb-0">{{item.titre}}</h3>
@@ -52,18 +50,15 @@
                 </div>
                 </a>
                 {% empty %}
-                <h3 class="text-center lead">Aucun livre trouvé.</h3>
+                <h3 class="text-center lead">Aucun cours trouvé.</h3>
                 {% endfor %}
 
             </div>
             
         </div>
 
-
     <div class="b-example-divider"></div>
     
-  
-
     </div>
   </div>
 {% endblock content %}

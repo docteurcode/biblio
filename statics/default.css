@@ -136,3 +136,17 @@ body {
 body{
   background-color: red !important;
 }
+
+#msg{
+  display: none !important;
+}
+
+@media (max-width:1176px) {
+  main{
+    background-color: red !important;
+    display: none !important;
+  }
+  #msg{
+    display: block !important;
+  }
+}
