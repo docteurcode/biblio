@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<div class="mb-4 bg-light rounded-">
+    <div class="container-fluid py-3 row">
+    
+        <div class="col-md-12 mx-auto">
+            <br>
+            <h2 class="display-7w-bold mx-auto col-8 mb-3">{{data.titre}}</h2>
+            
+            <div class="col-md-8 mx-auto">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="{% static 'icons/1.png' %}" height="150" alt="">
+                    </div>
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">{{data.classe}}</h3>
+                        <div class="mb-1 text-muted">{{data.date}}</div>
+                        <p class="card-text mb-auto lead">{{data.description}}</p>
+                        <a href="#" style="text-decoration:none" class="stretched-link lead">Nombres de lectures {{data.nombre_de_lecture}}</a>
+                      </div>
+                </div>
+            </div>
+            
+            
+            <div class="col-8 mx-auto">
+                <a href="{% url 'lecteurPDF' data.keydata %}" class="btn btn-outline-success btn-lg" type="button">Ouvrire le livre</a>
+                <!-- <button class="btn btn-secondary btn-lg" type="button">Télécharger le livre</button> -->
+            </div>
+        </div>
+
+
+    <div class="b-example-divider"></div>
+    
+    
+    <div class="col-md-8 row text-center mx-auto my-5 pt-3">
+        <h3 style="text-align: left !important; padding-bottom:.2em">Recommandation : </h3>
+        <hr>
+        <br>
+        <br>
+
+        {% for item in recommandation %}
+        {% if recommandation.count < 2 %}
+        <div class="col-md-3 d-inline-block">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+             style="max-width: 180px!important;">
+              <div class="col p-4 d-flex flex-column position-static">
+                <img src="{% static 'icons/1.png' %}" height="150" alt="">
+                <h3 class="mb-0 lead py-3">{{item.titre}}</h3>
+                <div class="mb-1 text-muted">{{item.date}}</div>
+                <a href="{% url 'detailsE' item.keydata %}" class="stretched-link">Consultez le livre</a>
+              </div>
+              <!-- <div class="col-auto d-none d-lg-block mx-auto">
+                <img src="{% static 'icons/1.png' %}" alt="">
+              </div> -->
+            </div>
+          </div>
+          {% else %}
+          <div class="col-md-3 d-inline-block mx-auto">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+             style="max-width: 180px!important;">
+              <div class="col p-4 d-flex flex-column position-static">
+                <img src="{% static 'icons/1.png' %}" height="150" alt="">
+                <h3 class="mb-0 lead py-3">{{data.titre}}</h3>
+                <div class="mb-1 text-muted">{{data.date}}</div>
+                <a href="{% url 'detailsE' data.keydata %}" class="stretched-link">Consultez le livre</a>
+              </div>
+              <!-- <div class="col-auto d-none d-lg-block mx-auto">
+                <img src="{% static 'icons/1.png' %}" alt="">
+              </div> -->
+            </div>
+          </div>
+          {% endif %}
+      
+          {% empty %}
+          <h4 class="text-center lead">Oups ! Aucune recommandation trouvée.</h4>
+
+          {% endfor %}
+      
+      
+
+     
+
+      
+      
+    
+    </div>
+
+
+    </div>
+  </div>
+{% endblock content %}

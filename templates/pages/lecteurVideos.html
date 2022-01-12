@@ -1,0 +1,77 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>L-C-P Bibliothéques</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+
+    <meta name="theme-color" content="#7952b3">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <link href="{% static 'default.css' %}" rel="stylesheet">
+    <link href="{% static 'v.css' %}" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
+  <div class="container-fluid">
+    <a class="navbar-brand btn btn-danger" href="{% url 'videos' %}">Fermer</a>
+    <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+    <h3 class="text-center text-white col-12">{{data.titre}}</h3>
+    </div>
+  </div>
+</nav>
+
+<main class="container-fluid">
+
+    <video
+    style = "height: 90vh !important; width:100%"
+    id="my-video"
+    class="video-js vjs-theme-city"
+    controls
+    preload="auto"
+    poster="{% static 'icons/2.png' %}"
+    data-setup="{}"
+  >
+    <source src="{{data.file.url}}" type="video/mp4" />
+    <!-- <source src="MY_VIDEO.webm" type="video/webm" /> -->
+    <p class="vjs-no-js">
+      Pour voir cette vidéo, veuillez activer JavaScript et envisagez de passer à un
+      navigateur Web qui
+      <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >prend en charge la vidéo HTML5.</a
+      >
+    </p>
+  </video>
+
+</main>
+
+
+<script src="{% static 'script.js' %}"></script>
+<script src="{% static 'default.js' %}"></script>
+<script src="{% static 'v.min.js' %}"></script>
+  </body>
+</html>

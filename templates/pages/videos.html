@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h6 class="border-bottom pb-2 mb-0">Ajoutés cette semaines : 123 documents</h6>
+   
+    <!-- <h1 class="visually-hidden">Heroes examples</h1> -->
+
+    <div class="px-4 py-3 my-3 text-center">
+      <img class="d-block mx-auto" src="{% static 'lcp_logo.png' %}" alt="" width="150" height="150">
+      <h1 class="display-5 fw-bold mb-3">Open Librairie</h1>
+      <div class="col-7 mx-auto mb-5">
+          <form action="" method="POST">
+              {% csrf_token %}
+              <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Titre du cours" style="padding: .6em;font-size: 1.25rem;font-weight: 300;"  onblur="this.focus()" autofocus >
+                <button class="btn btn-outline-secondary" type="submit">
+                    <img src="{% static 'search.png' %}" alt="" height="30">
+                </button>
+                <!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button> -->
+                <!-- <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul> -->
+              </div>
+              <!-- <input type="text" class="form-control text-center" style="padding: .6em;font-size: 1.25rem;font-weight: 300;" placeholder="Titre du livre ou du cours"> -->
+            </form>
+        </div>
+      <!-- <div class="col-lg-6 mx-auto my-3 mt-3 mb-5">
+         <p class="lead mb-4">Remarque : Dans la barre de recherche, vous devez renseigner le nom du livre ou du cours que vous souhaitez consulter dans la librairie. </p> 
+          <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Rechercher</button>
+        </div> -->
+
+        <div class="col-md-8 row text-center mx-auto">
+
+            {% for item in data %}
+            
+            <div class="col-md-3 d-inline-block mx-auto">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                >
+                <div class="col p-4 d-flex flex-column position-static">
+                    <img src="{% static 'icons/2.png' %}" height="150" alt="">
+                    <h3 class="mb-0 lead py-3">{{item.titre}}</h3>
+                    <div class="mb-1 text-muted">{{item.date|date:'d M Y'}}</div>
+                    <a href="{% url 'detailsV' item.keydata %}" class="stretched-link">Consultez le livre</a>
+                </div>
+                <!-- <div class="col-auto d-none d-lg-block mx-auto">
+                    <img src="{% static 'icons/1.png' %}" alt="">
+                </div> -->
+            </div>
+        </div>
+        
+    
+    
+    {% endfor %}
+
+          
+          
+        
+        </div>
+
+      </div>
+    </div>
+  
+
+    <div class="b-example-divider mb-0"></div>
+
+
+
+
+
+
+
+
+
+    <small class="d-block text-end mt-3">
+      <a href="{% url 'homepage' %}" class="lead">Consultez par Classe</a>
+    </small>
+  </div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,119 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>L-C-P Bibliothéques</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+
+    <meta name="theme-color" content="#7952b3">
+    <style>
+     /* CSS for responsive iframe */
+/* ========================= */
+
+/* outer wrapper: set max-width & max-height; max-height greater than padding-bottom % will be ineffective and height will = padding-bottom % of max-width */
+#Iframe-Master-CC-and-Rs {
+  max-width: 512px;
+  max-height: 100%; 
+  overflow: hidden;
+}
+
+/* inner wrapper: make responsive */
+.responsive-wrapper {
+  position: relative;
+  height: 0;    /* gets height from padding-bottom */
+  
+  /* put following styles (necessary for overflow and scrolling handling on mobile devices) inline in .responsive-wrapper around iframe because not stable in CSS:
+    -webkit-overflow-scrolling: touch; overflow: auto; */
+  
+}
+ 
+.responsive-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* padding-bottom = h/w as % -- sets aspect ratio */
+/* YouTube video aspect ratio */
+.responsive-wrapper-wxh-572x612 {
+  padding-bottom: 107%;
+}
+
+/* general styles */
+/* ============== */
+.set-border {
+  border: 5px inset #4f4f4f;
+}
+.set-box-shadow { 
+  -webkit-box-shadow: 4px 4px 14px #4f4f4f;
+  -moz-box-shadow: 4px 4px 14px #4f4f4f;
+  box-shadow: 4px 4px 14px #4f4f4f;
+}
+.set-padding {
+  padding: 40px;
+}
+.set-margin {
+  margin: 30px;
+}
+.center-block-horiz {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+    </style>
+    <link href="{% static 'default.css' %}" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    
+    
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
+      <div class="container-fluid">
+        <a class="navbar-brand btn btn-danger p-0" href="{% url 'homepage' %}">Fermer</a>
+        <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <h3 class="text-center text-white col-12">{{data.titre}}</h3>
+        </div>
+      </div>
+    </nav>
+    
+
+
+
+<main class="container-fluid">
+<!-- 
+  <div id="Iframe-Master-CC-and-Rs" class="set-margin set-padding set-border set-box-shadow center-block-horiz">
+    <div class="responsive-wrapper 
+       responsive-wrapper-wxh-572x612"
+       style="-webkit-overflow-scrolling: touch; overflow: auto;"> -->
+      
+      <iframe src="{{data.file.url}}" class="col-12 container-fluid" style="height: 100vh;"> 
+        <p style="font-size: 110%;"><em><strong>ERROR: </strong>  
+          Un cadre doit être affiché ici mais la version de votre navigateur ne prend pas en charge les cadres. </em>Veuillez mettre à jour votre navigateur vers sa version la plus récente et réessayer.</p>
+      </iframe>
+      
+    <!-- </div>
+  </div> -->
+
+
+</main>
+
+
+<script src="{% static 'script.js' %}"></script>
+<script src="{% static 'default.js' %}"></script>
+  </body>
+</html>

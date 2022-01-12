@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<div class="mb-4 bg-light rounded-">
+    <div class="container-fluid py-3 row">
+        <div class="col-7 mx-auto mb-5">
+            <h4 class="display-7 fw-bold mx-auto">Résultat</h2>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" value="{{search}}" name="search" class="form-control" placeholder="Titre du livre" style="padding: .6em;font-size: 1.25rem;font-weight: 300;">
+                    <button class="btn btn-outline-secondary" type="submit">
+                        <img src="{% static 'search.png' %}" alt="" height="30">
+                    </button>
+                </div>
+              </form>
+          </div>
+
+
+          
+          <div class="col-md-12 mx-auto">
+              <div class="col-md-8 mx-auto">
+                <div class="form-group col-2 ">
+                  <select class="form-select form-select-lg mb-3" onchange="filtreParClasse()" aria-label=".form-select-lg example" id="search">
+                      <option selected disabled>Par Niveau</option>
+                      <option value="Sec">Seconde </option>
+                      <option value="Pre">Premiere </option>
+                      <option value="Ter">Terminale</option>
+                    </select>
+                </div>
+
+
+                {% for item in data %}
+                <div id="container_elmnt">
+                    <div class="row g-0 item border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-200 position-relative">
+                        <div class="col-auto d-none d-lg-block">
+                            <img src="{% static 'icons/1.png' %}" height="150" alt="">
+                        </div>
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <h3 class="mb-0">{{item.titre}}</h3>
+                            <div class="mb-1 text-muted">{{item.date}}</div>
+                            <span class="text-primary">{{item.classe}}</span>
+                            <em class="d-nne">{{item.classe|slice:3}}</em>
+                            <p class="card-text mb-auto lead">{{item.description}}</p>
+                            <!-- <a href="#" style="text-decoration:none" class="stretched-link lead">Nombres de lectures (9) </a> -->
+                        </div>
+                    </div>
+                    
+                </div>
+                {% empty %}
+                <h3 class="text-center lead">Aucun Résultat.</h3>
+                {% endfor %}
+
+            </div>
+            
+        </div>
+
+
+    <div class="b-example-divider"></div>
+    
+  
+
+    </div>
+  </div>
+{% endblock content %}

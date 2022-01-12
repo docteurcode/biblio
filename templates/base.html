@@ -1,0 +1,95 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>L-C-P Bibliothéques</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+
+    <meta name="theme-color" content="#7952b3">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <link href="{% static 'default.css' %}" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'homepage' %}">Bibliothéques LCP</a>
+    <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Livres</a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'videos' %}">Cours vidéos</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Sélectionner une classe</a>
+          <ul class="dropdown-menu" aria-labelledby="dropdown01">
+            <li><a class="dropdown-item" href="#">Seconde A</a></li>
+            <li><a class="dropdown-item" href="#">Seconde S</a></li>
+            <hr>
+            <li><a class="dropdown-item" href="#">Premiere A</a></li>
+            <li><a class="dropdown-item" href="#">Premiere S</a></li>
+            <hr>
+            <li><a class="dropdown-item" href="#">Terminal S</a></li>
+            <li><a class="dropdown-item" href="#">Terminal A</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-scroller bg-body shadow-sm">
+  <nav class="nav nav-underline" aria-label="Secondary navigation">
+    <a class="nav-link active" aria-current="page" href="#">Statistiques</a>
+    <a class="nav-link" href="#">
+      Livres
+      <span class="badge bg-light text-dark rounded-pill align-text-bottom">27</span>
+    </a>
+    <a class="nav-link" href="#">
+      Cours Vidéos
+      <span class="badge bg-light text-dark rounded-pill align-text-bottom">27</span>
+    </a>
+  </nav>
+</div>
+
+<main class="container-fluid">
+
+    {% block content %}
+ 
+  {% endblock content %}
+
+
+</main>
+
+
+<script src="{% static 'script.js' %}"></script>
+<script src="{% static 'default.js' %}"></script>
+  </body>
+</html>
